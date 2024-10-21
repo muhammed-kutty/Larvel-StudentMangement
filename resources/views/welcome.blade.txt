@@ -1,0 +1,9 @@
+Route::middleware('jwt.verify')->prefix('payment')->group(function () {
+    Route::get('/', [paymentController::class, 'index'])->name('payment.home');
+    Route::get('view/{id}', [paymentController::class, 'view'])->name('payment.view');
+    Route::get('create', [paymentController::class, 'create'])->name('payment.create');
+    Route::post('save', [paymentController::class, 'save'])->name('payment.save');
+    Route::get('edit/{id}', [paymentController::class, 'edit'])->name('payment.edit');
+    Route::post('update', [paymentController::class, 'update'])->name('payment.update');
+    Route::get('delete/{id}', [paymentController::class, 'delete'])->name('payment.delete');
+});
